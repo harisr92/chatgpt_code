@@ -23,10 +23,10 @@ module ChatgptCode
     end
 
     def complete
-      choises = request
-      # return unless choises
+      response = request
+      return unless response
 
-      # choises['choises'].map { |choice| choice['text'] }
+      response['choices'].map { |choice| choice['text'] }
     end
 
     private
@@ -51,6 +51,7 @@ module ChatgptCode
 
     def request_data
       {
+        model: 'code-davinci-002',
         prompt: snippet,
         temperature: 0,
         max_tokens: 60,
@@ -67,7 +68,7 @@ module ChatgptCode
     end
 
     def request_uri
-      @request_uri ||= URI.parse('https://api.openai.com/v1/engines/code-davinci-002/completions')
+      @request_uri ||= URI.parse('https://api.openai.com/v1/completions')
     end
 
     def do_request(http, req, uri)

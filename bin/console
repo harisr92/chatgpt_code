@@ -15,7 +15,7 @@ require 'irb'
 
 ChatgptCode.configure do |config|
   config.api_key = ENV['CHATGPT_API_KEY']
-  config.logger = 'chatgpt-api.log'
+  config.logger = $stdout
 end
 
 IRB.start(__FILE__)
