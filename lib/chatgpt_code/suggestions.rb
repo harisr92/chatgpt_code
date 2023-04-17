@@ -51,7 +51,7 @@ module ChatgptCode
 
     def request_data
       {
-        model: 'code-davinci-002',
+        model: ChatgptCode.config.model,
         prompt: snippet,
         temperature: 0,
         max_tokens: 60,

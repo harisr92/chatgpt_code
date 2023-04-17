@@ -16,6 +16,7 @@ module ChatgptCode
   end
 
   setting :api_key
+  setting :model, default: 'gpt-3.5-turbo'
   setting :logger, default: $stdout, constructor: lambda { |value|
     ::Logger.new(value, level: ::Logger::INFO)
   }
